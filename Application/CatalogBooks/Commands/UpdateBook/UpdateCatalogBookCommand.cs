@@ -34,6 +34,16 @@ namespace Application.CatalogBooks.Commands.UpdateBook
 
             if (request.Authors != null)
             {
+                //Remove all authors which are not in request
+                foreach (Author author in catalogBook.Book.Authors)
+                {
+                    if (!request.Authors.Any(a => a.FirstName == author.FirstName && a.LastName == author.LastName))
+                    {
+                        catalogBook.Book.Authors.Remove(author);
+                    }
+                }
+                //
+
                 foreach (var author in request.Authors)
                 {
                     var newAuthor =

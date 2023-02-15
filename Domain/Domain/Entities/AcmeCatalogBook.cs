@@ -9,6 +9,6 @@ namespace Domain.Entities
 
         public double Price { get; set; }
 
-        public Book Book { get; set; } 
+        public Book Book { get; set; }
     }
 }
